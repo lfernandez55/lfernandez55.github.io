@@ -82,6 +82,13 @@ nav a:hover{
   transform: rotate(2deg);
   background-color: #4CB8FF;
 }
+
+#bookcover{
+    float:left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
 /*when the viewport gets small, stack the top nav*/
 @media screen and (max-width: 568px){
     nav li{
@@ -105,3 +112,4 @@ nav a:hover{
 
 }
 }
+
