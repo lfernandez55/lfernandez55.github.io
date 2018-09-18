@@ -1,0 +1,186 @@
+<!DOCTYPE HTML >
+
+<html>
+<head>
+<title>Bio/CV</title>
+<link rel="stylesheet" type="text/css" title="noskeu" href="main2.css" />
+<link rel="stylesheet" type="text/css" title="skeu" href="main.css" />
+<script language="JavaScript" type="text/javascript" src="manu.js"></script>
+<style type="text/css">
+.container li{
+margin-bottom:2em;
+list-style-type: none;
+}
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45189107-1', 'lfernandez.org');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body onload="set_style_from_cookie()" >
+  <h1>
+   lfernandez.org
+  </h1>
+
+  <div class="menu">
+    <ul>
+    <li><a href="../index.html">Home</a> </li>
+    <li><a href="blog.html">Blog</a> </li>
+    <li ><a href="writing.html"   >Writing</a> </li>
+    <li><a href="book.html">Book</a> </li>
+    <li><a href="walden.html">Walden Zones</a> </li>
+    <li style="background-color:#f8f8f8;"><a href="etc.html" style="color:#000000;">Bio/CV</a> </li>
+    <li><a href="contact.html">Contact Me</a> </li>
+    </ul>
+  </div>
+  <div style="clear:both"></div>
+  <div class="container">
+      <style type="text/css">
+      
+      
+        .submenu ul{
+        list-style-type:none;
+        /*a ul element has some default padding. if it's not taken out the ul won't center exactly
+        as per: http://stackoverflow.com/questions/4781014/unordered-list-ul-default-indent  */
+        padding-left:0px;
+        }
+        
+        .submenu li{
+        display:inline-block;
+        padding: 4px 5px;
+        font-weight: bold;
+        
+        text-align: center;
+        
+        }
+        .submenu li + li{
+        margin-left:10px;
+        }
+        
+        .submenu a{
+        text-decoration: none;
+        color:#3399ff;
+        }
+        /*
+        .submenu a:visited {
+        text-decoration: none;
+        color: #000000;
+        }
+        
+        .submenu a:hover{
+        color:#0000ff;
+        }
+        */
+        #nav{
+        text-align:center;
+        }
+        #drones, #cv, #teaching{
+         display:none;
+        }
+        
+        #francoLink{
+        color:#000000;
+        }
+      
+
+      </style>
+      <!-- background-color of tab in main: #3399ff; 
+      hover color in main: #0066ff;-->
+      <script language="JavaScript" type="text/javascript">
+        function changeContent(passedElement){
+          document.getElementById('drones').style.display='none';
+          document.getElementById('franco').style.display='none';
+          document.getElementById('cv').style.display='none';
+          document.getElementById('teaching').style.display='none';   
+          
+          //document.getElementById('dronesLink').style.color='#3399ff';
+          document.getElementById('francoLink').style.color='#3399ff';
+          document.getElementById('cvLink').style.color='#3399ff';
+          //document.getElementById('teachingLink').style.color='#3399ff'; 
+          
+          var contentId = passedElement.id.replace("Link","");
+          document.getElementById(passedElement.id).style.color='#000000';
+          document.getElementById(contentId).style.display='block';
+          
+       }
+        
+        function hoverColor(passedElement){
+
+            var stringVar = passedElement.style.color;
+            stringVar = stringVar.toString();
+            if (passedElement.style.color == 'rgb(0, 0, 0)'){
+               //alert('its black do nothing');
+            }else{
+               passedElement.style.color='#0066ff';
+            } 
+        }
+        function defaultColor(passedElement){
+        
+            var stringVar = passedElement.style.color;
+            stringVar = stringVar.toString();
+            if (passedElement.style.color == 'rgb(0, 0, 0)'){
+               //alert('its black do nothing');
+            }else{
+                passedElement.style.color='#3399ff';
+            } 
+        }
+        
+      </script>
+
+      <div id="nav">
+          <div class="submenu">
+              <ul>
+                <!--  
+      		      <li><a href="#" onclick="changeContent(this)" onmouseover="hoverColor(this)" onmouseout="defaultColor(this)" id="dronesLink">Drones</a></li>
+                <li>|</li>
+                -->
+                <li><a href="#" onclick="changeContent(this)" onmouseover="hoverColor(this)" onmouseout="defaultColor(this)" id="francoLink" >Bio</a></li>
+                <li>|</li>
+                <li><a href="#" onclick="changeContent(this)" onmouseover="hoverColor(this)" onmouseout="defaultColor(this)" id="cvLink" >CV</a></li>
+                <!--  
+                <li>|</li>
+                <li><a href="#" onclick="changeContent(this)" onmouseover="hoverColor(this)" onmouseout="defaultColor(this)" id="teachingLink" >Teaching</a></li>
+                 -->
+             </ul>
+          </div>
+      </div>
+      
+      <div id="drones">
+        Drones content 
+      </div>
+      <div id="franco" style="height:600px;" >
+          <p>
+          In the early 1970's I accompanied my parents to northern Spain for a year and a half.  They were doing anthropological field work in a small
+          village called 
+          <a href="http://www.youtube.com/watch?v=AkREDlS5wnc">Felechosa</a>. The following article in 
+          <a href="http://www.weber.edu/WSUImages/weberjournal/JournalPDFs/Fall%202011%20Book%20for%20web.pdf">Weber: The Contemporary West (Fall 2011 Issue)</a>  
+          recounts that experience.  
+          </p>
+          <object data="docs/memories.pdf" type="application/pdf" width="100%" height="100%">
+            <p>Your web browser doesn't have a PDF plugin.
+            Instead you can <a href="docs/memories.pdf">click here to
+            download the PDF file.</a></p>
+          </object>
+      </div>
+      <div id="cv" style="height:600px;">
+           <object data="docs/CV_May_2013.pdf" type="application/pdf" width="100%" height="100%">
+            <p>Your web browser doesn't have a PDF plugin.
+            Instead you can <a href="docs/CV_May_2013.pdf">click here to
+            download the PDF file.</a></p>
+          </object>
+      </div>
+      <div id="teaching">
+        Teaching content 
+      </div>
+      
+    </div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!--
+    This site is based on a template created by:
+    Author: Sam Deering (samdeering.com)
+    Article: jquery4u.com/mobile/jquery-mobile-portfolio/
+    Demo: jquery4u.com/demos/mobileportfoliosite/
+-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Mobile Portfolio</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="mobile portfolio, mobile portfolio site">
+        <meta name="author" content="sam deering">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/jquery.mobile-1.2.0.min.js"></script>
+        <link href="css/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet">
+        <link href="css/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet">
+        <link href="css/jquery.mobile-1.2.0.min.css" rel="stylesheet">
+        <link href="css/photoswipe.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/script.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/klass.min.js"></script>
+        <script src="js/code.photoswipe.jquery-3.0.5.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- homepage -->
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>lfernandez.org</h1>
+            </div>
+            <div data-role="content">
+
+                    <div class="pt-menu">
+                        <a data-theme="d" data-corners="false" data-role="button" href="#profile">
+                            <!--  <img images/lukemid.jpgsrc="images/icons/round/64x64/profile.png" alt="rss" style="display: block; margin: 0 auto">-->
+                            <img src="images/lukeTrans.gif" width="64" height="64" alt="rss" style="display: block; margin: 0 auto">
+                            Profile
+                        </a>
+
+                        <a data-theme="d" data-corners="false" data-role="button" href="#portfolio">
+                            <!--  <img src="images/icons/round/64x64/portfolio.png" alt="rss" style="display: block; margin: 0 auto">-->
+                            <img src="images/pencilTransparent.gif" width="64" height="64" alt="rss" style="display: block; margin: 0 auto">
+                            Blog
+                        </a>
+
+                        <a data-theme="d" data-corners="false" data-role="button" href="#social">
+                            <!-- <img src="images/icons/book.png" alt="mail" style="display: block; margin: 0 auto"> -->
+                            <img src="images/bookTransparent.gif" width="64" height="64" alt="mail" style="display: block; margin: 0 auto">
+                            Book
+                        </a>
+
+                        <a data-theme="d" data-corners="false" data-role="button" href="#contact">
+                            <img src="images/envelopeTransparent.gif" width="64" height="64" alt="mail" style="display: block; margin: 0 auto">
+                            Contact
+                        </a>
+
+                    </div>
+
+            </div>
+            <div data-role="footer">
+                <h2>lfernandez.org</h2>
+                
+            </div>
+        </div>
+
+        <!-- personal profile page -->
+        <div data-role="page" id="profile" data-title="profile">
+            <div data-role="header">
+                <h1>My Profile</h1>
+                <a data-role="button" href="#home" data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+
+                <!-- profile image -->
+                <!--  <img src="images/icons/avatar/m_10.png" alt="mee" />-->
+                <img src="images/lukemid.jpg" width="100" height="100" alt="lukemid (24K)" />
+                <!-- my profile -->
+                
+                <div class="ui-body ui-textalign-left">
+                        <p>
+                        This is the personal web site of Luke Fernandez.  I am a software developer and a faculty member in the department of computer science at Weber State University in Ogden, Utah.  I code educational software and I specialize in developing secure online testing applications.</p>
+                        <p>
+                        In addition to coding and teaching I write articles on digital technology and the way these technologies are shaping (and being shaped by) higher education.  My writing has
+                        appeared in the Chronicle of Higher Education, Educause Review and Campus Technology (among many other publications).  I also blog at <a href="http://lfernandez.org/blog">Tech (Dis)contents</a>.
+                        </p>
+                        <p>
+                        I am currently writing a history with <a href="http://www.weber.edu/history/faculty/matt.html">Susan Matt</a>  on how communication technologies have shaped inner life in America since the emergence of the telegraph.  We are
+                       focusing on three themes: the religion of technology, the way that communication has affected Americans' commitment to communitarian ideals, and the way that emerging technologies have shaped Americans' hopes for perfect 
+                       knowledge.  We are using the approaches and frameworks that are employed by historians of the emotions as well as ethnographers.  
+                       These include close looks at diaries, populist commentary as well as first person interviews.    
+                        </p>
+                        <p>
+                        I haven't followed a traditional path through academe.  I received a <a href="http://ecommons.library.cornell.edu/handle/1813/7983">doctorate in political science</a>  from Cornell University in 1997.  Instead of 
+                        becoming a full time political scientist I took up the craft, and science, of coding software.  I create digital tools to enhance our ability to learn.  
+                        At the same time I use the disciplines of history and political philosophy to make sense of our digital tools.
+                        </p>
+
+                </div>
+                
+                
+            </div>
+            <div data-role="footer">
+                <h2>lfernandez.org</h2>
+                
+            </div>
+        </div>
+
+        <!-- portfolio page -->
+        <div data-role="page" id="portfolio" data-title="portfolio">
+            <div data-role="header">
+                <h1>My Blog</h1>
+                <a data-role="button" href="#home" data-transition="flip" data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+
+                I blog at <a href="http://techdiscontents.com">techdiscontents.com</a>
+
+            </div>
+            <div data-role="footer">
+                <h2>lfernandez.org</h2>
+                
+            </div>
+        </div>
+
+       
+
+        <!-- social page -->
+        <div data-role="page" id="social" data-title="Social">
+            <div data-role="header">
+                <h1>Book</h1>
+                <a data-role="button" href="#home" data-transition="flip"
+                data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+                <div class="ui-body ui-textalign-left">
+                  <p>
+                  It is a perennial lament among historians that Americans suffer from historical amnesia.  This affliction is very much in evidence in 21st century attempts to make sense of our currrent emotional responses to technology.  Critics map
+                  out these emotions by referencing psychologists, cognitive scientists and tech pundits.  But how often are <a href="http://en.wikipedia.org/wiki/History_of_emotions">historians of the emotions</a>  consulted?  Not so much. 
+                  </p>
+                  <p>
+                  The book Susan Matt and I am writing is an attempt to redress this affliction.  We look at the hopes and dissappointments that past Americans harbored toward 
+                  communication technologies and contrast them with 21st century emotional responses.  Our research so far reveals many continuities and discontinuities.
+                  </p>
+                  <p>
+                  A model of our approach is in evidence in our Chronicle of Higher Education article <a href="http://chronicle.com/blogs/conversation/2013/04/23/before-moocs-colleges-of-the-air/">Before MOOCs, 'Colleges of the Air'</a>
+                  </p>
+                </div>
+
+            </div>
+            <div data-role="footer">
+                <h2>lfernandez.org</h2>
+                
+            </div>
+        </div>
+
+        <!-- Contact page -->
+        <div data-role="page" id="contact" data-title="Contact">
+            <div data-role="header">
+                <h1>Contact Me</h1>
+                <a data-role="button" href="#home" data-icon="home" data-corners="false">Home</a>
+            </div>
+            <div data-role="content">
+                  <p>
+                  Email me at lfernandez at weber dot edu
+                  </p>
+                  <p>
+                  <a href="https://twitter.com/luke_fernandez" class="twitter-follow-button" data-show-count="false">Follow @luke_fernandez</a>
+                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                  </p>
+            </div>
+            <div data-role="footer">
+                <h2>lfernandez.org</h2>
+                
+            </div>
+        </div>
+    </body>
+
+</html>

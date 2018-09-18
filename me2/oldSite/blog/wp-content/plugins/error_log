@@ -1,0 +1,2 @@
+[22-Jun-2015 19:09:17 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/lfernand/public_html/blog/wp-content/plugins/hello.php on line 60
+[12-Jan-2016 05:01:29 UTC] PHP Warning:  Module 'intl' already loaded in Unknown on line 0

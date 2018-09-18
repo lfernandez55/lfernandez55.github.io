@@ -1,0 +1,94 @@
+/*Color scheme:
+https://color.adobe.com/create/color-wheel/?base=2&rule=Monochromatic&selected=1&name=My%20Color%20Theme&mode=rgb&rgbvalues=0,0.3013322418670441,0.5,0.30000000000000004,0.7218651386138617,1,0,0.6026644837340882,1,0.2617163422280737,0.40532143982146185,0.5,0,0.4821315869872706,0.8&swatchOrder=0,1,2,3,4
+*/
+body{
+  /*Ubuntu is a Google font.  See the link on the main page for how to access it*/
+  font-family: "Ubuntu", sans-serif;
+}
+
+#nav{
+  background-color: #43677F;
+  color:white;
+  padding: 1em;
+  
+
+}
+
+#jumbotron{
+
+  /*To determine height find out what percentage of the width the image is. Below it's 47 percent*/
+  height:47vw;
+  background-image:url("../images/lukeProfile2.jpg");
+  /*background-image:url("../images/withText.jpg");*/
+  /*cover or contain*/
+  background-size:cover;
+  color:white;
+  text-align:center;
+  text-shadow: 0 0 10px #000000;
+}
+#jumbo-main-text{
+  /*Eye ball the the below for centeredness.  There's more than one line.  Otherwise it would be 47/2 */
+  margin-top: 16vw;
+  margin-bottom:.5em;
+  font-size: 6vw;
+}
+#jumbo-desc{
+  margin-top:.5em;
+  font-size: 3vw;
+  font-style: italic;
+  color:white;
+}
+#jumbotron hr{
+  width:45vw;
+}
+nav ul{
+  margin:0;
+  padding:0;
+}
+nav li{
+  display:inline-block;
+  padding-right:3em;
+
+}
+nav a{
+  text-decoration: none;
+  color:white;
+}
+nav a:hover{
+  color:#4CB8FF;
+}
+#bio{
+  font-size: 2.5vw;
+  text-align: center;
+}
+.one-quarter div{
+  width:20vw;
+  height:20vw;
+  border:1px solid black;
+  margin:auto;
+  text-align:center;
+  background-color: #007BCC;
+  color:black;
+  /*the below centers the text*/
+  line-height: 20vw;
+  font-size:5vw;
+  border-radius: 25%;
+  text-decoration:none;
+}
+.one-quarter a{
+  text-decoration:none;
+}
+.one-quarter div:hover{
+  transform: rotate(2deg);
+  background-color: #4CB8FF;
+}
+/*when the viewport gets small, stack the top nav*/
+@media screen and (max-width: 568px){
+  nav li{
+    display:block;
+    border-bottom:1px solid white;
+    padding:.5em;
+    margin:0;
+    text-align:center;
+  }
+}

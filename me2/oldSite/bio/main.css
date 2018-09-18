@@ -1,0 +1,110 @@
+.menu{
+margin-bottom:2%;
+font-family: sans-serif;
+font-size: 1.3em;
+}
+
+h1{
+font-family: sans-serif;
+font-size: 2em;
+letter-spacing:.6em;
+text-shadow: 10px -10px 5px #888888;
+
+}
+
+body{
+margin-left:20%;
+margin-right:20%;
+font-family: sans-serif;
+font-size: 1em;
+min-width:1090px;
+}
+
+/*
+a:link {text-decoration:none;}
+*/
+
+
+/*the below transforms the menu from simple links to blocks that change when they are rolled over.  Take this out if
+you want to move back to simple links */
+/*Not sure why the pseudo class a:link doesn't work here.  So I'm just using a instead */
+.menu a{
+font-weight: bold;
+color: #ffffff;
+text-align: center;
+text-decoration: none;
+} 
+
+/*This does nothing, the style of the link is manipulated by the new page that is loaded when the link is clicked
+.menu a:visited {
+font-weight: bold;
+color: #FFFFFF;
+text-align: center;
+text-decoration: none;
+}
+*/
+
+.menu a:hover{
+color:#0066ff;
+}
+
+.menu li{
+float:left;
+list-style:none;
+margin-top:5%;
+
+padding: 4px 15px;
+background-color: #3399ff;
+border-top-right-radius:1em;
+border-top-left-radius:1em;
+-webkit-border-top-right-radius:1em; /* Safari */
+-webkit-border-top-left-radius:1em; /* Safari */
+
+
+box-shadow: 10px -10px 5px #888888;
+
+/*box-shadow:5px -5px 5px #E0E0E0;*/
+
+}
+
+/*put some space on the left of each block but not the first one */
+.menu li+li{
+padding-left:1em;
+margin-left:.5em;
+
+}
+
+/*keeps the menu from jogging to the right*/
+.menu ul{
+padding-left:0;
+}
+
+.menu{
+/*
+margin-bottom:6%;
+*/
+}
+
+/*The grey background*/
+.container{
+background-color:#f8f8f8;
+padding:1% 2%;
+box-shadow: 10px -10px 5px #888888;
+}
+
+#footer{
+clear:both;
+text-align:center;
+font-size:.7em;
+}
+
+/*
+@media only screen and (max-device-width: 1690px) {
+*/
+@media (max-width: 1690px) {
+  body{
+  margin-left:10%;
+  margin-right:10%;
+  }
+}
+
