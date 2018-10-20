@@ -101,11 +101,9 @@ function unStyleIt(element){
 function checkAnswer(){
     if (document.getElementById('response').value == personArray[currentId].firstname){
        
-       //apply the class to reduce the opacity of the image, takeout the mouse events because they shouldn't be there anymore
-       document.getElementById(currentId).className = "opClass";
-       document.getElementById(currentId).removeAttribute("onclick");
-       document.getElementById(currentId).removeAttribute("onmouseover");
-       
+       //NOTE TO STUDENT: apply the class to reduce the opacity of the image, 
+       //takeout the mouse events because they shouldn't be there anymore
+     
        //superimpose name on image
        var divVar =document.createElement('div');
        divVar.setAttribute('id',currentId + 'name' );
