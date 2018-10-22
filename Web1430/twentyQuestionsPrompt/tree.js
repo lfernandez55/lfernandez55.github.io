@@ -118,7 +118,8 @@ function treeWalkUsingWhileLoop(node){
     nodesToVisit.push(node); // put the root node 
     var currentNode;
     while (nodesToVisit.length > 0){
-        currentNode = nodesToVisit.pop();
+        //the below pop() does a depth first search (DFS).  use shift() to perform a breadth first search (BFS)
+        currentNode = nodesToVisit.pop();  
         console.log('Unique id: ' + currentNode.uniqueId + ' Question: ' + currentNode.question + " Animal: " + currentNode.animal);
         if (currentNode.no){
             nodesToVisit.push(currentNode.no);
