@@ -38,6 +38,9 @@ function quiz(path){
 
     if (path.animal){
         //if the node contains an animal attribute that isn't null run this code
+        //a conditional with no operator executes if the expression returns anything other than
+        //null, 0, false, "", or undefined.  see:
+        //see https://tinyurl.com/y9lbudjk
         userResponse = prompt('The answer could be ' + path.animal + ' Is it? [Type "y" or "n"]');
         if (userResponse == 'y') {
           alert('I guessed it. Press quiz to play again.');
