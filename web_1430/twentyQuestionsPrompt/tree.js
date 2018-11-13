@@ -108,10 +108,10 @@ var TwentyQ = (function () {
         console.log('Unique id: ' + root.uniqueId + ' Question: ' + root.question + " Animal: " + root.animal);
 
         if (root.yes) {
-            this.treeWalk(root.yes);
+            treeWalk(root.yes);
         }
         if (root.no) {
-            this.treeWalk(root.no);
+            treeWalk(root.no);
         }
     }
 
