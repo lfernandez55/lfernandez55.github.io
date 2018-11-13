@@ -161,10 +161,10 @@ var TwentyQ = (function () {
 
         parentNode = root;
         if (root.yes) {
-            this.treeWalk2(parentNode, root.yes);
+            treeWalk2(parentNode, root.yes);
         }
         if (root.no) {
-            this.treeWalk2(parentNode, root.no);
+            treeWalk2(parentNode, root.no);
         }
     }
     
