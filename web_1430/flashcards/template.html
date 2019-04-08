@@ -1,171 +1,156 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 
 <html>
-
 <head>
-    <title>Flash Cards</title>
-    <style type="text/css">
-        body,
-        header {
-            text-align: center;
-            font-family: arial;
-            font-size: 1em;
-            background-color: silver;
-        }
+<title>Flash Cards</title>
+<style type="text/css">
 
-        .frame {
-            padding: 25px;
-            background-color: white;
-            border: solid 1px black;
-            display: inline-block;
+body, header{
+text-align:center;
+font-family:arial;
+font-size:1em;
+background-color: silver;
+}
 
-        }
+.frame{
+padding:25px;
+background-color:white;
+border:solid 1px black;
+display:inline-block;
 
-        #prompt {
-            background-color: aqua;
-            padding: 10px;
-            display: none;
-        }
+}
 
-        img {
-            cursor: pointer;
-        }
+#prompt{
+background-color:aqua;
+padding:10px;
+display:none;
+}
 
-        .opClass {
-            opacity: 0.4;
-            filter: alpha(opacity=40);
-            /* For IE8 and earlier */
-            cursor: default;
-        }
-    </style>
+img{
+cursor:pointer;
+}
 
-    <script language="JavaScript" type="text/javascript">
-        var currentId = "";
-        var x = 0;
-        var y = 0;
+.opClass {
+    opacity:0.4;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
+    cursor:default;
+}
 
-        var personArray = [{
+</style>
+
+<script language="JavaScript" type="text/javascript">
+
+
+
+var currentId = "";
+var x = 0;
+var y = 0;
+var x_px = '0px';
+var y_px = '0px';
+    
+var personArray = [
+
+            {
                 firstname: "Abarnave",
-                url: "https://lfernandez.org/web1430/pics/abarnave.jpg"
+                url: "https://lfernandez.org/web_1430/pics/abarnave.jpg"
             },
             {
                 firstname: "Bluto",
-                url: "https://lfernandez.org/web1430/pics/bluto.jpg"
+                url: "https://lfernandez.org/web_1430/pics/bluto.jpg"
             },
-            {
-                firstname: "Abarnave",
-                url: "https://lfernandez.org/web1430/pics/abarnave.jpg"
-            },
-            {
-                firstname: "Bluto",
-                url: "https://lfernandez.org/web1430/pics/bluto.jpg"
-            }, {
-                firstname: "Abarnave",
-                url: "https://lfernandez.org/web1430/pics/abarnave.jpg"
-            },
-            {
-                firstname: "Bluto",
-                url: "https://lfernandez.org/web1430/pics/bluto.jpg"
-            }
-        ];
+];
 
 
-        function populateImages() {
-            //Note to student: You have to write the contents of this method!
+function populateImages(){
+//NOTE TO STUDENT:  You have to fill in the code in this function
+}
+
+function promptForName(element){
+    document.getElementById('prompt').style.display='block';
+    currentId = element.id;
+    x = element.offsetLeft; 
+    y = element.offsetTop;
+    x = x + 20;
+    y = y + 20;
+    x_px = x + 'px';
+    y_px = y + 'px';    
+    document.getElementById('prompt').style.position="absolute";
+    document.getElementById('prompt').style.top=y_px;
+    document.getElementById('prompt').style.left=x_px;
+    document.getElementById('response').focus();
+}
+
+function styleIt(element){
+    element.parentNode.style.backgroundColor='aqua';
+}
+
+function unStyleIt(element){
+    element.parentNode.style.backgroundColor='white';
+}
+
+function checkAnswer(){
+    if (document.getElementById('response').value == personArray[currentId].firstname){
+       
+       //apply the class to reduce the opacity of the image, takeout the mouse events because they shouldn't be there anymore
+       document.getElementById(currentId).className = "opClass";
+       document.getElementById(currentId).removeAttribute("onclick");
+       document.getElementById(currentId).removeAttribute("onmouseover");
+       
+       //superimpose name on image
+       var divVar =document.createElement('div');
+       divVar.setAttribute('id',currentId + 'name' );
+       document.getElementById('pic-grid').appendChild(divVar);
+       var textNode = document.createTextNode(personArray[currentId].firstname);
+       divVar.appendChild(textNode);
+       document.getElementById(currentId + 'name').style.position="absolute";
+       document.getElementById(currentId + 'name').style.top=y_px;
+       document.getElementById(currentId + 'name').style.left=x_px;
+       
+       //clean up loose ends: hide the prompt, turn the frame white so it doesn't change to aqua on the rollover, erase the response and message
+       document.getElementById('prompt').style.display='none';
+       document.getElementById(currentId).parentNode.style.backgroundColor='white';
+       document.getElementById('response').value = "";
+       document.getElementById('message').innerHTML = "";
+    }else{
+        if (document.getElementById('message').innerHTML == "Wrong!"){
+          document.getElementById('message').innerHTML = "Incorrect answer!"
+        }else{
+          document.getElementById('message').innerHTML = "Wrong!"
         }
-
-        function promptForName(element) {
-            document.getElementById('response').value = "";
-            document.getElementById('message').innerHTML = "";
-            document.getElementById('prompt').style.display = 'block';
-            currentId = element.id;
-            x = element.offsetLeft;
-            y = element.offsetTop;
-            x = x + 20;
-            y = y + 20;
-            document.getElementById('prompt').style.position = "absolute";
-            document.getElementById('prompt').style.top = y;
-            document.getElementById('prompt').style.left = x;
-            document.getElementById('response').focus();
-        }
-
-        function styleIt(element) {
-            element.parentNode.style.backgroundColor = 'aqua';
-
-        }
-
-        function unStyleIt(element) {
-            element.parentNode.style.backgroundColor = 'white';
-
-        }
-
-        function checkAnswer() {
-            if (document.getElementById('response').value == personArray[currentId].firstname) {
-
-                //NOTE TO STUDENT: apply the class to reduce the opacity of the image, 
-                //takeout the mouse events because they shouldn't be there anymore
-                document.getElementById(currentId).className = "opClass";
-                document.getElementById(currentId).removeAttribute("onclick");
-                document.getElementById(currentId).removeAttribute("onmouseover");
-
-
-                //superimpose name on image
-                var divVar = document.createElement('div');
-                divVar.setAttribute('id', currentId + 'name');
-                document.getElementById('pic-grid').appendChild(divVar);
-                var textNode = document.createTextNode(personArray[currentId].firstname);
-                divVar.appendChild(textNode);
-                document.getElementById(currentId + 'name').style.position = "absolute";
-                document.getElementById(currentId + 'name').style.top = y;
-                document.getElementById(currentId + 'name').style.left = x;
-
-                //clean up loose ends: hide the prompt, turn the frame white so it doesn't change to aqua on the rollover, erase the response and message
-                document.getElementById('prompt').style.display = 'none';
-                document.getElementById(currentId).parentNode.style.backgroundColor = 'white';
-                document.getElementById('response').value = "";
-                document.getElementById('message').innerHTML = "";
-            } else {
-                if (document.getElementById('message').innerHTML == "Wrong!") {
-                    document.getElementById('message').innerHTML = "Incorrect answer!"
-                } else {
-                    document.getElementById('message').innerHTML = "Wrong!"
-                }
-            }
-            return false;
-        }
-    </script>
+    }
+    return false;
+}
+</script>
 
 
 
 </head>
-
 <body onload="populateImages()">
 
-    <header>
-        <h2>Class Flashcards</h2>
-        <h3>Click on a student to guess their name</h3>
-        <h4>Concepts: Rollovers, Opacity, Showing and Hiding Elements, Arrays of Objects, Adding and Removing Elements/Attributes Dynamically to the DOM,
-            Accessing Elements using parentnode</h4>
-    </header>
+  <header>
+  <h2>Class Flashcards</h2>
+  <h3>Click on a student to guess their name</h3>
+  <h4>Concepts: Rollovers, Opacity, Showing and Hiding Elements, Arrays of Objects, Adding and Removing Elements/Attributes Dynamically to the DOM,
+  Accessing Elements using parentnode</h4>
+  </header>
 
-    <div id="pic-grid">
-        <div>Note: take out these two pics and this text. It's in the template only for demo purposes. You have to create the pics dynamically in the populateImages function using the Objects and JavaScript DOM manipulation methods:</div>
-        <div class="frame">
-            <img src="https://lfernandez.org/web_1430/pics/abarnave.jpg" onclick="promptForName(this)" onmouseover="styleIt(this)" onmouseout="unStyleIt(this)" id="0" width="250px">
-        </div>
-        <div class="frame">
-            <img src="https://lfernandez.org/web_1430/pics/bluto.jpg" onclick="promptForName(this)" onmouseover="styleIt(this)" onmouseout="unStyleIt(this)" id="1" width="250px">
-        </div>
-
-    </div>
-
-    <div id="prompt">
-        What is this student's name?<br />
-        <form onsubmit="return checkAnswer()">
-            <input type="text" id="response" name="quizInput">
-        </form>
-        <div id="message"></div>
-    </div>
+  <div id="pic-grid">
+      <div>Note: take out these two pics and this text.  It's in the template only for demo purposes.  You have to create the pics dynamically in the populateImages function using the Objects and JavaScript DOM manipulation methods:</div>
+      <div class="frame">
+          <img src="https://lfernandez.org/web_1430/pics/abarnave.jpg" onclick="promptForName(this)" onmouseover="styleIt(this)" onmouseout="unStyleIt(this)" id="0" width="250px">
+      </div>
+      <div class="frame">
+          <img src="https://lfernandez.org/web_1430/pics/bluto.jpg" onclick="promptForName(this)" onmouseover="styleIt(this)" onmouseout="unStyleIt(this)" id="1" width="250px">
+      </div>
+      
+  </div>
+  
+  <div id="prompt" >
+    What is this student's name?<br />
+    <form onsubmit="return checkAnswer()">
+    <input type="text" id="response" name="quizInput">
+    </form>
+    <div id="message"></div>
+  </div>
 </body>
-
 </html>
