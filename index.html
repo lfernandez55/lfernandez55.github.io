@@ -13,8 +13,28 @@
   <link rel="stylesheet" href="stylesheets/custom.css">
   <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic' rel='stylesheet' type='text/css'>
 <style id="jsbin-css">
-
+    #jumbotron{
+      transition: background 1.5s linear;
+    }
 </style>
+<script>
+    var image = 0
+    setInterval(swapImages, 7000);
+    function swapImages(){
+        if (image == 0){
+            document.getElementById('jumbotron').style.backgroundImage="url('../images/lukeProfile2.jpg')";
+//            document.getElementById('jumbo-main-text').style.visibility = 'visible';
+//            document.getElementById('jumbo-desc').style.visibility = 'visible';
+            image = 1;
+        }else{
+            document.getElementById('jumbotron').style.backgroundImage="url('../images/bookImage3d_large.jpg')";
+//            document.getElementById('jumbo-main-text').style.visibility = 'hidden';
+//            document.getElementById('jumbo-desc').style.visibility = 'hidden';
+            image = 0;
+        }
+
+    }
+</script>
 </head>
 <body>
  <div class="grid">
@@ -32,15 +52,17 @@
 
   <div class="grid">
     <div class="unit whole" id="jumbotron">
+<!--
       <h1 id="jumbo-main-text">Luke Fernandez, PhD</h1>
        <hr>
       <p id="jumbo-desc">I write, teach, and code at Weber State University</p> 
+-->
     </div> 
   </div>
 
   <div class="grid" id="bio">
     <div class="unit whole" >
-      <p>
+      <p >
         This is the personal web site of Luke Fernandez. I am an assistant professor in the department of computer science at Weber State University in Ogden, Utah. 
       </p>
     </div> 
@@ -72,7 +94,7 @@
     <div class="unit one-quarter">
     <a href="writing.html">
     <div>
-      Writing.
+      Writing
     </div>
     </a>
     

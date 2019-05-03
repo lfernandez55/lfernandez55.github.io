@@ -9,8 +9,34 @@
     <!-- <link rel="stylesheet" href="http://lfernandez.x10host.com/stylesheets/gridism.css"> -->
     <link rel="stylesheet" href="stylesheets/gridism.css">
     <link rel="stylesheet" href="stylesheets/custom.css">
-    <style id="jsbin-css">
-
+    <style >
+        #bookcover{float:left}
+        iframe{
+            float:right;
+            display: inline-block;
+            margin-left:30px;
+            margin-bottom:30px;
+            width: 560px;
+            height: 315px;
+            border: 1px solid red;
+        }
+        @media screen and (max-width: 568px) {
+            #container{
+                text-align: center;
+            }
+            #bookcover{
+                float:none;
+                
+            }
+            iframe{
+                
+                float:none;
+                margin: auto;
+                width:90vw;   
+                height:50vw;
+                border: 1px solid green;
+            }
+        }
     </style>
 </head>
 
@@ -29,10 +55,11 @@
     </div>
 
     <div class="grid" id="book">
-        <div class="unit whole">
-            <img id="bookcover" src="images/bookCover.png" style="float:left">
-            <iframe style="float:right;margin-left:30px;margin-bottom:30px" width="560" height="315" src="https://www.youtube.com/embed/WexjPpykeBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+        <div class="unit whole" id="container">
+            <img id="bookcover" src="images/bookCover.png" >
+<!--            <div id="myframe">-->
+                <iframe  src="https://www.youtube.com/embed/WexjPpykeBU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--            </div>-->
 
             <p>
                 For almost a decade <a href="https://www.weber.edu/History/susanmatt.html">Susan Matt</a> and I worked on a book titled <a target="_blank" href="http://www.hup.harvard.edu/catalog.php?isbn=9780674983700">Bored, Lonely, Angry, Stupid; Feelings About Technology From the Telegraph To Twitter.</a> The book was released May 1st 2019 with Harvard University Press.
