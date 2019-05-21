@@ -18,7 +18,7 @@ body{
 
   /*To determine height find out what percentage of the width the image is. Below it's 47 percent*/
   height:47vw;
-  background-image:url("../images/lukeProfile2.jpg");
+  background-image:url("../images/bookImage3d_large.jpg");
   /*background-image:url("../images/withText.jpg");*/
   /*cover or contain*/
   background-size:cover;
