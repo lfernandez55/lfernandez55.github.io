@@ -89,13 +89,17 @@ nav a:hover{
     margin-bottom: 30px;
 }
 
-.dropbutton{
+.dropbutton, .page_title{
     display:none;
 }
 
 
 /*when the viewport gets small, stack the top nav*/
 @media screen and (max-width: 568px){
+        .page_title{
+            display:inline
+        }
+
         .dropbutton {
           display: inline-block;
           background-color: hsl(204,31%,38%); ;
