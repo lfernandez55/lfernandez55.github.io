@@ -1,0 +1,63 @@
+/* TODO New Lines: Select what ever elements you want and use all of the following font properties:
+	Text Color
+	Font Family
+	Font Size
+	Font Style
+	Font Variant
+	Font Weight
+	Line Height
+
+	If necessary you can add classes or elements to the index.html file. */
+h2{
+    color: blueviolet;
+    font-family: helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bolder;
+    line-height: normal;   
+}
+
+/* TODO New Lines: Select what ever elements you want and use all of the following text properties:
+	Text Align
+	Text Decoration
+	Text Indent
+	Text Shadow
+	Text Transform
+	Letter Spacing
+	Word Spacing
+
+	If necessary you can add classes or elements to the index.html file. */
+h1{
+    text-align: left;
+    text-decoration: none;
+    text-indent: 10px;
+    text-shadow: 1px 1px 1px yellow;
+    text-transform: capitalize;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+/* TODO New Line: Add a linear gradient to the header. */
+
+header{
+    background: linear-gradient(to bottom right, blue, purple);
+}
+
+/* TODO New Line: Change the list style of the first list on the page. Remember it is an ordered list. */
+ol{
+    list-style: decimal;
+    /* Was I supposed to remove the original numbers? It looks kind of stupid with two sets of numbers. */
+}
+
+/* TODO New Line: Change the list style of the second list on the page. Remember it is an unordered list. */
+ul{
+    list-style: circle;
+}
+
+/* TODO New Line: Position the intro image flush right. */
+#introduction > img{
+    width: 400px;
+    float: right;
+    /* I resized the image because it was too big to see if my float was working or not. */
+}

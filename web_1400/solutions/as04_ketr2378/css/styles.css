@@ -1,0 +1,34 @@
+/* TODO New Lines: Select what ever elements you want and use all of the following font properties:
+
+	Text Color
+	Font Family
+	Font Size
+	Font Style
+	Font Variant
+	Font Weight
+	Line Height
+
+	If necessary you can add classes or elements to the index.html file. */
+p{color:green;font-variant: small-caps;text-indent: 50px;}
+/* TODO New Lines: Select what ever elements you want and use all of the following text properties:
+	Text Align
+	Text Decoration
+	Text Indent
+	Text Shadow
+	Text Transform
+	Letter Spacing
+	Word Spacing
+
+	If necessary you can add classes or elements to the index.html file. */
+h2{text-shadow:4px 4px 4px blue;letter-spacing:1px;word-spacing:2px  }
+/* TODO New Line: Add a linear gradient to the header. */
+header{background: linear-gradient(to right, white , silver);}
+/* TODO New Line: Change the list style of the first list on the page. Remember it is an ordered list. */
+
+/* TODO New Line: Change the list style of the second list on the page. Remember it is an unordered list. */
+
+/* TODO New Line: Position the intro image flush right. */
+/*#flushRight{text-align:right}*/
+#introImage{float:right};
+
+video{width:500px}

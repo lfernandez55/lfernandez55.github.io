@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <title>Assignment 2 Validator</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	var urlVar = document.getElementById('urlPath').value;
+        
+        var jqxhr = $.get( urlVar, function( data ) {
+            var myElement =document.createElement('html');
+            myElement.innerHTML = data;
+            test(data, myElement);
+        })
+          .fail(function() {
+            alert( "Error: most likely you put in a URL that was not accessible - did you use http?" );
+          })
+        
+    });
+});
+    
+  
+function test(data, myElement){
+    var errors = "";
+    try {
+        var h1s1 = myElement.getElementsByTagName("h1");
+        if (h1s1.length == 1){
+            errors = errors + "You have the correct number of H1 elements.<br>";
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of H1 elements.</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your H1 elements...</span><br>";
+    }
+    
+    try {
+        var bodyPosition = data.search("<body"); 
+        var headerPosition = data.search("<header");
+        
+        if( bodyPosition < headerPosition){
+            errors = errors + "Your header is probably coded correctly<br>";
+        }else{
+            errors = errors + "<span style='color:red'>Your header is either missing or probably nested in your head.  It should be nested in the body</span><br>";
+        }
+        
+    }
+    catch(err) {
+        errors = errors + err + "<span style='color:red'>Something seems wrong in how you have coded your heading.  Very likely you put it in the head ...</span><br>";
+    }
+    
+    try {
+        document.getElementById('div1').innerHTML = data;
+        var mainHeaderVar1 = document.getElementById("main_header").tagName;
+        if (mainHeaderVar1 == "HEADER"){
+            errors = errors +  " You seem to have coded the main_header id correctly <br>";
+        }else{
+            errors = errors + "<span style='color:red'> Something is probably wrong in how you have coded the main_header id </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + err + "<span style='color:red'> Something seems wrong in how you have coded the main_header id... </span><br>";
+    }
+    
+    try {
+        var section2 = myElement.getElementsByTagName("section");
+        if (section2.length == 2){
+            errors = errors +  " You have the correct number of section elements.<br>";
+        }else{
+            errors = errors + "<span style='color:red'> Something seems wrong in how you have coded your sections </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your section elements... </span><br>";
+    }
+    
+    try {
+        var colorChangeVar1 = myElement.getElementsByClassName("color_change");
+        if (colorChangeVar1.length == 2){
+            errors = errors +  " You have the correct number of color_change classes<br>";
+        }else{
+            errors = errors + "<span style='color:red'> Something is probably wrong in how you have coded the color_change class </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'> Something seems wrong in how you have coded the color_class... </span><br>";
+    }
+    
+
+    
+    try {
+        var anchorsInNav = myElement.getElementsByTagName("nav")[0].getElementsByTagName("a");
+        if (anchorsInNav.length == 2 ){
+            errors = errors +  " You have the correct number of links in the nav (e.g. 2)<br>";
+        }else{
+            errors = errors + "<span style='color:red'> Something seems wrong in how you have coded links in the nav </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'> Something seems wrong in how you have coded the navigation... </span><br>";
+    }  
+    
+    try {
+        //alert(myElement.getElementsByTagName("link")[0].getAttribute("href"));
+        var cssLink = myElement.getElementsByTagName("link")[0].getAttribute("href");
+        if (cssLink.length > 0 ){
+            errors = errors +  " You have a link with an href attribute named " +  cssLink + "  That's good.<br>";
+            
+              //kludge
+              var urlVar = document.getElementById('urlPath').value;
+              urlVar = urlVar.replace("index.html",'');
+              urlVar = urlVar + cssLink;
+              //alert("dddd: " + urlVar);
+              //load css file and examine it
+
+                $.get( urlVar, function( cssdata ) {
+                    testCSS(cssdata);
+                });
+            
+            
+            
+        }else{
+            errors = errors + "<span style='color:red'> Something seems to be wrong in how you coded the link to your css </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'> Something seems to be wrong in how you coded the link to your css... </span><br>";
+    }
+    
+    if (myElement.innerHTML.length < 1){
+        errors = "<span style='color:red'>ARE YOU SURE YOU ENTERED THE RIGHT URL? (No content seems to have been returned)</span><br>";
+    }
+    
+    //Assignment 2 Error Checking Below
+    try {
+        var colorChangeVar1 = myElement.getElementsByClassName("borders");
+        if (colorChangeVar1.length == 2){
+            errors = errors +  " You have the correct number of border classes<br>";
+        }else{
+            errors = errors + "<span style='color:red'> Something is probably wrong in how you have coded the border class </span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'> Something seems wrong in how you have coded the  border class... </span><br>";
+    }
+    
+    
+    document.getElementById('errors').innerHTML = errors   ;
+}
+
+function testCSS(varCSSString){
+    //gets rid of all spaces
+    varCSSString = varCSSString.replace(/\s/g,'');
+    alert(varCSSString);
+    var arr = [];
+    arr.push( varCSSString.search("p{") ); 
+    arr.push( varCSSString.search("#main_header{"));  
+    arr.push( varCSSString.search("a{"));  
+    arr.push( varCSSString.search(".borders{")); 
+    arr.push( varCSSString.search("#lantern{")); 
+    arr.push( varCSSString.search("#thaumatroupe{")); 
+    arr.push( varCSSString.search("#phenakistoscope{")); 
+    arr.push( varCSSString.search("#zoetrope{"));
+    arr.push( varCSSString.search("#flip-book{")); 
+    arr.push( varCSSString.search("#praxinoscope{")); 
+    arr.push( varCSSString.search("#main_nav{"));
+    
+    varSelectorFlag = true;
+    for (i = 0; i < arr.length; i++) { 
+        if (arr[i] == -1 ){
+            varSelectorFlag = false;
+        };
+    }
+    
+    
+    if (varSelectorFlag == true ){
+        document.getElementById('csserrors').innerHTML="Your CSS, based on a spot check, looks good. You have coded the appropriate selectors <br>";
+        return true;
+    }else{
+        document.getElementById('csserrors').innerHTML="<span style='color:red'>Your CSS appears to have some problems</span><br>";
+        return false;
+    }
+}
+    
+</script>
+<style>
+    #div1, #div2{display:none};
+</style>
+</head>
+<body>
+<h4>Validator For Assignment 1 (Catches some errors but not all!!)</h4>
+<!--This is the section that will be loaded from the URL.  However CSS keeps it hidden.-->
+<div id="div1"></div>
+
+   
+    
+<input type="text" id="urlPath" size="100" placeholder="Paste in your URL -use http do not use https-" ><br><br>
+<!--    http://127.0.0.1:55448/as01/index.htm-->
+<button>Test</button>
+<p></p>
+   
+<div id="errors"></div>   
+<div id="csserrors"></div>
+</body>
+</html>

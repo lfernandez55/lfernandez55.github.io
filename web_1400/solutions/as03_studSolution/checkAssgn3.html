@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <title>Assignment 3 Validator</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	var urlVar = document.getElementById('urlPath').value;
+        var jqxhr = $.get( urlVar, function( data ) {
+            var myElement =document.createElement('html');
+            myElement.innerHTML = data;
+            document.getElementById("debug").innerHTML=data;
+            test(data, myElement);
+        })
+          .fail(function() {
+            alert( "Error: most likely you put in a URL that was not accessible - make sure to use http not https" );
+          })
+        
+    });
+});
+    
+  
+function test(data, myElement){
+    var errors = "";
+    var score = 35;
+
+    //need this delay kludge because even though the id has been loaded, the css takes a little while longer
+    setTimeout(function(){                  
+
+
+        try {
+            var element = document.getElementById("debug");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("font-family");
+            var position = theCSSprop.search("Neue")
+            if (position > -1){
+                errors = errors + "You have the body styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the the body styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + " " + err + "<span style='color:red'> Something seems wrong in how you styled the body...(-5)</span><br>";
+        } 
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("h1")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("padding");
+            if (theCSSprop == "5px"){
+                errors = errors + "You have the h1 styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the h1 styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + "<span style='color:red'>Something seems wrong in how you styled the h1...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("h3")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("color");
+            //alert(theCSSprop);
+            if (theCSSprop == "rgb(255, 255, 255)"){
+                errors = errors + "You have the h3 styled correctly (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the h3 styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + "<span style='color:red'>Something seems wrong in how you styled the h3... (-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("p")[0];
+            // document.getElementById('debug2').innerHTML=window.getComputedStyle(element, null).lineHeight;
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("line-height");
+            // console.log(theCSSprop);
+            if (theCSSprop == "19.6px"){
+                errors = errors + "You have the p styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the p styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the p...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("section")[0];
+            // document.getElementById('debug2').innerHTML=window.getComputedStyle(element, null).lineHeight;
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("float");
+            // console.log(theCSSprop);
+            if (theCSSprop == "left"){
+                errors = errors + "You have the sections styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the sections styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the sections...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("nav_list");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("list-style");
+            console.log(theCSSprop);
+            if (theCSSprop == "none outside none"){
+                errors = errors + "You have the nav_list styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the nav_list styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the nav_list...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("li")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("display");
+            console.log(theCSSprop);
+            if (theCSSprop == "inline"){
+                errors = errors + "You have the li elements styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the li elements styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the li elements...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("a")[0];
+            //document.getElementById('debug2').innerHTML=window.getComputedStyle(element, null).listStyle;
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("text-decoration");
+            console.log(theCSSprop);
+            if (theCSSprop == "none solid rgb(255, 255, 255)"){
+                errors = errors + "You have the anchor elements styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the anchor elements styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the anchor elements...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("joy");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("font-family");
+            console.log(theCSSprop);
+            if (theCSSprop == '"Copperplate Gothic Light"'){
+                errors = errors + "You have the id joy styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the id joy styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the id joy...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("fish");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("font-family");
+            console.log(theCSSprop);
+            if (theCSSprop == '"Century Gothic"'){
+                errors = errors + "You have the id sit styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the id sit styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the id joy...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("end");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("position");
+            console.log(theCSSprop);
+            if (theCSSprop == 'relative'){
+                errors = errors + "You have the id end styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the id end styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the id end...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("roads");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("font-size");
+            console.log(theCSSprop);
+            if (theCSSprop == '16px'){
+                errors = errors + "You have the id roads styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the id roads styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the id roads...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("sea");
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("position");
+            console.log(theCSSprop);
+            if (theCSSprop == 'absolute'){
+                errors = errors + "You have the id roads styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the id roads styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the id roads...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementsByClassName("center")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("text-align");
+            console.log(theCSSprop);
+            if (theCSSprop == 'center'){
+                errors = errors + "You have the class center styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the class center styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class center...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementsByClassName("scroll")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("overflow");
+            console.log(theCSSprop);
+            if (theCSSprop == 'scroll'){
+                errors = errors + "You have the class scroll styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the class scroll styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class center...(-5)</span><br>";
+        }
+        
+        //the computed height for this in chrome is 277.333 -- seems like this might differ across browsers. so I will give free points here
+//        try {
+//            var element = document.getElementsByClassName("sm_height")[0];
+//            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("height");
+//            console.log('dddddddddd' + theCSSprop);
+//            if (theCSSprop == '300px'){
+//                errors = errors + "You have the class sm_height styled correctly  (+5)<br>";
+//                score = score + 5;
+//            }else{
+//                errors = errors + "<span style='color:red'>You have the class sm_height styled incorrectly (-5)</span><br>";
+//            }
+//        }
+//        catch(err) {
+//            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class sm_height...(-5)</span><br>";
+//        }
+        
+        try {
+            var element = document.getElementsByClassName("uppercase")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("text-transform");
+            console.log(theCSSprop);
+            if (theCSSprop == 'uppercase'){
+                errors = errors + "You have the class uppercase styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the class uppercase styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class uppercase...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementsByClassName("italic")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("font-style");
+            console.log(theCSSprop);
+            if (theCSSprop == 'italic'){
+                errors = errors + "You have the class italic styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the class italic styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class italic...(-5)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementsByClassName("clear")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("clear");
+            console.log(theCSSprop);
+            if (theCSSprop == 'both'){
+                errors = errors + "You have the class clear styled correctly  (+5)<br>";
+                score = score + 5;
+            }else{
+                errors = errors + "<span style='color:red'>You have the class clear styled incorrectly (-5)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + err +  "<span style='color:red'> Something seems wrong in how you styled the class clear...(-5)</span><br>";
+        }
+        
+        if (myElement.innerHTML.length < 1){
+        errors = "<span style='color:red'>ARE YOU SURE YOU ENTERED THE RIGHT URL? (No content seems to have been returned)</span><br>";
+        }
+    
+        document.getElementById('errors').innerHTML = errors   ;
+        document.getElementById('score').innerHTML = "Your score is " +  score + " out of 125 points (35 points are free)"  ; 
+    //end of timeout    
+    }, 1000);
+
+    
+
+        
+    
+    
+    
+    
+
+}
+
+
+    
+</script>
+<style>
+/*    #debug{display:none};*/
+</style>
+</head>
+<body>
+<h4>Validator For Assignment 3 (Catches some errors but not all!!)</h4>
+  
+    
+<input type="text" id="urlPath" size="100" value="http://127.0.0.1:61800/index.html" ><br><br>
+<!--    http://127.0.0.1:55448/as01/index.htm-->
+<button>Test</button>
+<p></p>
+   
+<div id="errors"></div>   
+<div id="score"></div>
+<div id="debug2"></div>
+    
+<div id="debug"></div>
+</body>
+</html>

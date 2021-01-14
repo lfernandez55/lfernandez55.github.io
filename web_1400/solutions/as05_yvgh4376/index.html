@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Form Assignment">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Form Assignment</title>
+  <style>
+      *{
+        box-sizing: border-box;
+        font-family: Verdana;
+      }
+
+      header{
+        background-color: silver; 
+        text-align: center;
+        padding: 30px;
+        font-size: 2em;
+        
+      }
+
+
+      #phil{
+        width: 95%;
+        height: 150px;
+      }
+
+      .parameter{
+        margin: 10px auto ;
+        /* border: 1px solid aqua; */ 
+        width: 90%;
+        /* margin: auto; */
+      }
+
+      .parameterLabel{
+        width: 50%;
+        /* border: 1px solid green; */
+        float: left;
+        text-align: right;
+      }
+      .parameterContent{
+        margin-left: 51%;
+        /* border: 1px solid black; */
+        padding-top: 2px;
+      }
+      label{
+        display:block;
+      }
+
+      #footer .parameterContent{
+        padding-left: 50px;
+      }
+  </style>
+</head>
+<body>
+  <header>
+  Your User Profile
+  </header>
+  
+  <form action="http://jkorpela.fi/cgi-bin/echo.cgi" method="POST">
+  
+    
+    <fieldset>
+    <legend>Security Details</legend>
+    
+      <div class="parameter">
+        <div class="parameterLabel">Login Name:</div>
+        <div class="parameterContent">
+          <label><input type="text" name="login_name" ></label>
+        </div>
+      </div>
+
+
+
+      <div class="parameter">
+        <div class="parameterLabel">Password:</div>
+        <div class="parameterContent">
+          <label><input type="password" name="login_pass" ></label>
+        </div>
+      </div>
+    
+    </fieldset>  
+    <fieldset>
+      
+    <legend>Other Details</legend>
+    
+      <div class="parameter">
+        <div class="parameterLabel">Your Favorite Editor:</div>
+        <div class="parameterContent">
+          <label><input type="radio" name="fav_editor" value="brackets" >Brackets</label>
+          <label><input type="radio" name="fav_editor" value="notepadplus" checked >Notepad ++</label>
+          <label><input type="radio" name="fav_editor" value="sublime" >Sublime Text</label>      
+        </div>
+      </div>
+    
+      <div class="parameter">
+        <div class="parameterLabel">Your Favorite Internet Titans:</div>
+        <div class="parameterContent">
+          <label><input type="checkbox" name="fav_titan" value="tim" >Tim Berners-Lee</label>
+          <label><input type="checkbox" name="fav_titan" value="larry" >Larry Page</label>
+          <label><input type="checkbox" name="fav_titan" value="sergey" >Sergey Brin</label>
+          <label><input type="checkbox" name="fav_titan" value="marc" >Marc Andreessen</label>
+        </div>
+      </div>
+      
+      <div class="parameter">
+        <div class="parameterLabel">Your Design Philosophy:</div>
+        <div class="parameterContent">
+          <textarea name="phil"></textarea>      
+        </div>
+      </div>
+      
+      <div class="parameter">
+        <div class="parameterLabel">Your Favorite Web Framework:</div>
+        <div class="parameterContent">
+          <select name="web_framework">
+            <option value="----">---------</option>
+            <option value="Bootstrap">Bootstrap</option>
+            <option value="Foundation">Foundation</option>
+            <option value="Gridism">Gridism</option>
+          </select>
+        </div>
+      </div>
+          
+          
+    </fieldset>  
+    
+    
+    <fieldset id="footer">
+      
+       <div class="parameter">
+        <div class="parameterLabel"></div>
+        <div class="parameterContent">
+            <input type="submit" value="Save">
+        </div>
+      </div>
+    </fieldset>
+    
+  </form>
+  
+</body>
+</html>

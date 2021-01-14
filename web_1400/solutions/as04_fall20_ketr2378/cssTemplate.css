@@ -1,0 +1,97 @@
+/*
+You can set up your own selectors and rulesets.  Or feel free to use the skeleton ones I provide.
+
+*/
+
+* {
+    /*  I set box-sizing to border-box here.  It makes sizing the figures/images that have to be on one line
+    easier */
+}
+
+/*
+    See the video tutorials to see how the body and container work together so that the background image that is
+in the body remains fixed while the main content, which is in the container div can scroll up.  It's a nice effect!
+
+The background image I'm using is the sky.png.  
+I set the background-size property to "cover" so the image takes up the entire page.
+And finally, I specify that the background-attachment property is "fixed" so it will remain in place while scrolling. 
+
+I set the default Calibri sans serif font in the body.  This sans serif font isn't used in the paragraphs so we will
+have to override the default font in the p selector.
+*/
+body {
+
+}
+
+#container {
+    /* The container has a background color so that the background image of the body doesn't show through.  
+    I make the container a proportion of the width of the body so it will have margins.  And then I center it. Don't forget also to apply some padding'*/
+}
+
+h1 {
+    /*  I set the font-variant to small caps and apply a text shadow to the h1  */
+}
+
+p {
+    /* Override the default font in the body.  In the body you should be using a sans-serif font.  In the paragraphs it's serif.
+    Use the text-indent property to indent the paragraphs.     */
+}
+
+h2 {
+        ;
+        letter-spacing: 1px;
+        word-spacing: 2px
+        /* To increase the contrast between the text in the headers and the paragraphs I add some extra styles to the headers. I do this by increasing the spacing between the
+            letters and the words using the letter-spacing property and the word-spacing property*/
+}
+
+
+header {
+    /* Add a linear gradient to the header. Mine starts off light at the top and gets darker further down. */
+
+}
+
+#flushRight {
+    /* gonna need to floats something here....   */
+}
+
+
+iframe {
+}
+
+#images figure {
+/*
+    This is where I set the display to "inline-block."  This allows the figure elements to behave according to the box-model but without stacking.  I then reduce width
+    of the elements enough so they can all fit on one line and also set the padding border and margins.
+*/
+}
+
+#images figure img {
+    display: inline-block;
+    width: 100%;
+}
+
+audio,
+video,
+figure,
+iframe {
+    /*  All of these elements need a box shadow applied to them.  */
+}
+
+video {
+    /*  Give the video a specified width  */
+}
+
+audio {
+    /*  At least on a PC running Chrome the audio element looks a little better with a little padding applied.  */
+}
+
+.audio-vid-container {
+    /*  I used this selector and ruleset to center the audio and video elements.  */
+}
+
+
+
+figcaption {
+    text-align: center;
+}

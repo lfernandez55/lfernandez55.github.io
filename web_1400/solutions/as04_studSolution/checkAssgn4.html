@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <title>Assignment 4 Validator</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	var urlVar = document.getElementById('urlPath').value;
+        var jqxhr = $.get( urlVar, function( data ) {
+            var myElement =document.createElement('html');
+            myElement.innerHTML = data;
+            document.getElementById("debug").innerHTML=data;
+            test(data, myElement);
+        })
+          .fail(function() {
+            alert( "Error: most likely you put in a URL that was not accessible - did you use http?" );
+          })
+        
+    });
+});
+    
+  
+function test(data, myElement){
+    var errors = "";
+    var score = 15;
+    try {
+        var imgs = myElement.getElementsByTagName("img");
+        //alert(myElement);
+        //alert (imgs.length);
+        //console.log(myElement);
+        if (imgs.length == 4){
+            errors = errors + "You have the correct number of images (+20)<br>";
+            score = score + 20;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of images. (-20)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your images...(-20)</span><br>";
+    }
+    
+    try {
+        var video = myElement.getElementsByTagName("video");
+        if (video.length == 1){
+            errors = errors + "You have the correct number of videos (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of videos. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your videos...(-10)</span><br>";
+    }
+    
+    try {
+        var audio = myElement.getElementsByTagName("audio");
+        if (audio.length == 1){
+            errors = errors + "You have the correct number of audios (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of audios. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your audios...(-10)</span><br>";
+    }
+    try {
+        var figure = myElement.getElementsByTagName("figure");
+        if (figure.length == 3){
+            errors = errors + "You have the correct number of figure tags (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of figure tags. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your figure...(-10)</span><br>";
+    }
+    try {
+        var figcaption = myElement.getElementsByTagName("figcaption");
+        if (figcaption.length == 3){
+            errors = errors + "You have the correct number of caption tags (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of caption tags. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your caption...(-10)</span><br>";
+    }
+    
+    try {
+        var iframe = myElement.getElementsByTagName("iframe");
+        if (iframe.length == 1){
+            errors = errors + "You have the correct number of iframe tags (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of iframe tags. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your iframe...(-10)</span><br>";
+    }
+    try {
+        var ol = myElement.getElementsByTagName("ol");
+        if (ol.length > 0){
+            errors = errors + "You have the correct number of ordered list elements  (+10)<br>";
+            score = score + 10;
+        }else{
+            errors = errors + "<span style='color:red'>You have the wrong number of ordered list elements. (-10)</span><br>";
+        }
+    }
+    catch(err) {
+        errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your ordered lists...(-10)</span><br>";
+    }
+
+    //need this delay kludge because even though the id has been loaded, the css takes a little while longer
+    setTimeout(function(){                  
+
+        //checking for float right
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("img")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("float");
+            if (theCSSprop == "right"){
+                errors = errors + "You have the image floated correctly  (+10)<br>";
+                score = score + 10;
+            }else{
+                errors = errors + "<span style='color:red'>You have the first image incorrectly floated (-10)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + "<span style='color:red'>Something seems wrong in how you have coded your floated image...(-10)</span><br>";
+        } 
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("header")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("background");
+            var position = theCSSprop.search("gradient")
+            if (position > -1){
+                errors = errors + "You have the header styled correctly  (+10)<br>";
+                score = score + 10;
+            }else{
+                errors = errors + "<span style='color:red'>You have the header incorrectly styled (-10)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + "<span style='color:red'>Something seems wrong in how you have styled your header...(-10)</span><br>";
+        }
+        
+        try {
+            var element = document.getElementById("debug").getElementsByTagName("h1")[0];
+            var theCSSprop = window.getComputedStyle(element, null).getPropertyValue("text-shadow");
+            var position = theCSSprop.search(" ")
+            if (position > -1){
+                errors = errors + "You have the text shaow in the h1 styled correctly  (+10)<br>";
+                score = score + 10;
+            }else{
+                errors = errors + "<span style='color:red'>You have the h1 incorrectly styled (-10)</span><br>";
+            }
+        }
+        catch(err) {
+            errors = errors + "<span style='color:red'>Something seems wrong in how you have styled your h1...(-10)</span><br>";
+        }
+        
+        
+        
+        if (myElement.innerHTML.length < 1){
+        errors = "<span style='color:red'>ARE YOU SURE YOU ENTERED THE RIGHT URL? (No content seems to have been returned)</span><br>";
+        }
+    
+        document.getElementById('errors').innerHTML = errors   ;
+        document.getElementById('score').innerHTML = "Your score is " +  score + " out of 125 points (15 points are free)"  ; 
+    //end of timeout    
+    }, 1000);
+
+    
+
+        
+    
+    
+    
+    
+
+}
+
+
+    
+</script>
+<style>
+    #debug{display:none};
+</style>
+</head>
+<body>
+<h4>Validator For Assignment 1 (Catches some errors but not all!!)</h4>
+  
+    
+<input type="text" id="urlPath" size="100" value="http://127.0.0.1:50431/index.html" ><br><br>
+<!--    http://127.0.0.1:55448/as01/index.htm-->
+<button>Test</button>
+<p></p>
+   
+<div id="errors"></div>   
+<div id="score"></div>
+<div id="debug"></div>
+</body>
+</html>

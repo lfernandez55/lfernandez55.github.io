@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    color: darkslategray;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-image: url("../images/sky.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-variant: small-caps;
+    text-shadow: 4px 4px 4px rgb(199, 199, 216)
+}
+
+p {
+    color: black;
+    text-indent: 50px;
+    font-family: "Times New Roman", Garamond, serif;
+}
+
+h2 {
+    ;
+    letter-spacing: 1px;
+    word-spacing: 2px
+}
+
+/* TODO New Line: Add a linear gradient to the header. */
+header {
+    background: linear-gradient(to bottom, white, silver);
+    padding: 30px;
+
+}
+
+#flushRight {
+    float: right;
+}
+
+
+iframe {
+    display: block;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+}
+
+#images figure {
+    display: inline-block;
+    width: 29%;
+    margin: 2%;
+    border: solid 2px black;
+    padding: 10px;
+}
+
+#images figure img {
+    display: inline-block;
+    width: 100%;
+}
+
+audio,
+video,
+figure,
+iframe {
+    box-shadow: 5px 5px 5px darkslategray;
+}
+
+video {
+    width: 500px;
+}
+
+audio {
+    padding: 2px;
+}
+
+.audio-vid-container {
+    text-align: center;
+}
+
+#container {
+    width: 80%;
+    margin: auto;
+    background-color: gainsboro;
+    padding: 10px;
+}
+
+figcaption {
+    text-align: center;
+}
